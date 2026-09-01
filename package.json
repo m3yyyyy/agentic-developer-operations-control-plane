@@ -1,0 +1,43 @@
+{
+  "name": "agentic-developer-operations-control-plane",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A safe, approval-gated control plane for simulated developer automation workflows.",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n api,ui -c cyan,magenta \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "tsx watch src/server.ts",
+    "dev:client": "vite --config vite.config.ts",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "tsc -p tsconfig.server.json",
+    "build:client": "vite build --config vite.config.ts",
+    "start": "node dist/server/server.js",
+    "mcp": "tsx src/mcp/server.ts",
+    "lint": "tsc -p tsconfig.server.json --noEmit && tsc -p tsconfig.client.json",
+    "test": "tsc -p tsconfig.test.json && node --test .test-dist/tests/*.test.js",
+    "check": "npm run lint && npm run test && npm run build"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@opentelemetry/api": "^1.9.1",
+    "ai": "^7.0.87",
+    "express": "^5.2.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.4.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2"
+  }
+}
