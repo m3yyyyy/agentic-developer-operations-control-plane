@@ -1,8 +1,17 @@
 # RelayOps — Agentic Developer Operations Control Plane
 
+[![CI](https://github.com/m3yyyyy/agentic-developer-operations-control-plane/actions/workflows/ci.yml/badge.svg)](https://github.com/m3yyyyy/agentic-developer-operations-control-plane/actions/workflows/ci.yml)
+
 RelayOps is a production-style reference implementation for governing developer automation agents. It demonstrates a complete **observe → diagnose → propose → approve → validate → review** workflow while keeping the public demo safe: repository data is synthetic, proposed patches are virtual, unknown tools fail closed, and no shell or Git mutation capability is registered.
 
 > **Reference implementation, not a production executor.** The architecture and contracts are real; external side effects are deliberately simulated.
+
+## Live demo
+
+- [Open the RelayOps dashboard](https://agentic-developer-operations-control.onrender.com)
+- [Check the public health endpoint](https://agentic-developer-operations-control.onrender.com/api/health)
+
+The deployed workflow has been verified end to end: new runs stop at the human approval checkpoint, approved simulations complete their validation and review stages, blocked capabilities remain unavailable, and decisions appear in the live audit stream.
 
 ## Why this project exists
 
@@ -134,6 +143,7 @@ If a real model is connected later, keep approval decisions on the server and co
 `render.yaml` defines a Render Blueprint with:
 
 - Blueprint/service name: `agentic-developer-operations-control-plane`
+- Public URL: `https://agentic-developer-operations-control.onrender.com`
 - Node.js 22 runtime
 - `/api/health` health check
 - production dependency pruning
@@ -171,4 +181,3 @@ Those omissions are intentional. See [SECURITY.md](SECURITY.md) before adapting 
 ## License
 
 MIT
-
