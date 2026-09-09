@@ -23,7 +23,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
     "@opentelemetry/api": "^1.9.1",
-    "ai": "^7.0.87",
+    "ai": "^7.0.93",
     "express": "^5.2.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
